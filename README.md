@@ -35,8 +35,8 @@ Following steps will download the toolchain and o/s image and install them in yo
 
 ```bash
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
-tar xfz raspi-toolchain-install.tar.gz -C raspi-toolchain
-bash raspi-toolchain/setup/install_cross.sh
+mkdir temp && tar xfz raspi-toolchain-install.tar.gz -C temp
+bash temp/setup/install_cross.sh
 ```
 ### Test the setup
 This repository contains a simple hello world example.
