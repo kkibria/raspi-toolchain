@@ -28,19 +28,24 @@ You have two options:
 - Build the toolchain yourself
 
 ### Use pre-built toolchain
+To cross-compile any executable you need the toolchain on your host and
+you need to get current libraries and include files from raspberry o/s image.
 
-Every github release has a pre-build toolchain attached.
-See
+Following steps will download the toolchain and o/s image and install them in your linux. I tested them in my WSL2 ubuntu in a windows machine.
 
-1. Download the toolchain:
 ```bash
-wget https://github.com/Pro/raspi-toolchain/releases/latest/download/raspi-toolchain.tar.gz
+wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
+tar xfz raspi-toolchain-install.tar.gz -C raspi-toolchain
+bash raspi-toolchain/setup/install_cross.sh
 ```
-2. Extract it. Note: The toolchain has to be in `/opt/cross-pi-gcc` since it's not location independent.
-```bash
-sudo tar xfz raspi-toolchain.tar.gz --strip-components=1 -C /opt
+### Test the setup
+This repository contains a simple hello world example.
+Make sure you have ``cmake`` installed. Following will build the executable.
 ```
-3. You are done!
+bash raspi-toolchain/build_hello_world.sh
+```
+Copy the executable from ``build`` directory to your raspi
+and run to check.
 
 ### Build the toolchain from source
 
@@ -71,10 +76,7 @@ It's important that you put the files into the same directory, since the toolcha
 
 After that feel free to delete the docker container.
 
-## Test the toolchain
-
-This repository contains a simple hello world example.
-
+## Manually copy the libraries
 To cross-compile any executable after you installed the toolchain on your host,
 you need to get the current libraries and include files from your raspberry:
 
@@ -85,6 +87,9 @@ rsync -vR --progress -rl --delete-after --safe-links pi@192.168.1.PI:/{lib,usr,e
 
 Then call the script `build_hello_world.sh`.
 
+## Test the toolchain
+
+This repository contains a simple hello world example.
 To test the executable, copy it to your raspi:
 
 ```bash
@@ -92,20 +97,3 @@ scp build/hello pi@192.168.1.PI:/home/pi/hello
 ssh pi@192.168.1.PI
 ./hello
 ```
-
-
-## my easy install
-```bash
-wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
-tar xfz raspi-toolchain-install.tar.gz
-bash setup/install_cross.sh
-```
-
-## test hello world
-make sure you have ``cmake`` installed
-```
-bash setup/build_hello_world.sh
-```
-
-copy the executable from build directory to your raspi
-and run ro check
