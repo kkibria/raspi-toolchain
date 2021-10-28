@@ -94,9 +94,18 @@ ssh pi@192.168.1.PI
 ```
 
 
-## easy install
+## my easy install
 ```bash
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
 tar xfz raspi-toolchain-install.tar.gz
-bash install_cross/install_cross.sh
+bash setup/install_cross.sh
 ```
+
+## test hello world
+make sure you have ``cmake`` installed
+```
+bash setup/build_hello_world.sh
+```
+
+copy the executable from build directory to your raspi
+and run ro check
