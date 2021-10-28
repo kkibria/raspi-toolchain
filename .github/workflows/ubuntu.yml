@@ -1,4 +1,4 @@
-name: ubuntu cross-lfs
+name: ubuntu cross-pi
 
 on:
   push:
@@ -13,7 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: setup
+    - name: build
       run: |
         bash tools/build.sh
 
