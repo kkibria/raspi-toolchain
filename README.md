@@ -92,3 +92,11 @@ scp build/hello pi@192.168.1.PI:/home/pi/hello
 ssh pi@192.168.1.PI
 ./hello
 ```
+
+
+## easy install
+```bash
+wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
+tar xfz raspi-toolchain-install.tar.gz
+bash install_cross/install_cross.sh
+```

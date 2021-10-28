@@ -21,3 +21,8 @@ jobs:
       with:
         name: raspi-toolchain
         path: raspi-toolchain.tar.gz
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: raspi-toolchain-install
+        path: raspi-toolchain-install.tar.gz        
