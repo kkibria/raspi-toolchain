@@ -4,7 +4,6 @@ ZIP=$(basename -- "$URLIMG")
 IMG=${ZIP%.*}.img
 MNT="raspios"
 
-wget $URLIMG
 unzip $ZIP
 fdisk -lu $IMG
 # Disk 2021-05-07-raspios-buster-armhf-lite.img: 1.76 GiB, 1874853888 bytes, 3661824 sectors
@@ -29,4 +28,4 @@ popd
 # sudo umount $MNT/pi-sd-1
 sudo umount $MNT/pi-sd-2
 rm -rf $MNT
-rm $ZIP $IMG
+rm $IMG
