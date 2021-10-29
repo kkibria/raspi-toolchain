@@ -34,15 +34,17 @@ you need to get current libraries and include files from raspberry o/s image.
 Following steps will download the toolchain and o/s image and install them in your linux. I tested them in my WSL2 ubuntu in a windows machine.
 
 ```bash
+mkdir temp && pushd temp
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
-mkdir temp && tar xfz raspi-toolchain-install.tar.gz -C temp
-bash temp/setup/install_cross.sh
+tar xfz raspi-toolchain-install.tar.gz
+bash setup/install_cross.sh
+popd
 ```
 ### Test the setup
 This repository contains a simple hello world example.
 Make sure you have ``cmake`` installed. Following will build the executable.
 ```
-bash raspi-toolchain/build_hello_world.sh
+bash temp/build_hello_world.sh
 ```
 Copy the executable from ``build`` directory to your raspi
 and run to check.
