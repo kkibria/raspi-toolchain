@@ -34,9 +34,11 @@ you need to get current libraries and include files from raspberry o/s image.
 Following steps will download the toolchain and o/s image and install toolchain and library in your linux. I tested them in my WSL2 ubuntu in a windows machine.
 
 ```bash
+# work inside a temporary directory
 mkdir temp && pushd temp
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
 tar xfz raspi-toolchain-install.tar.gz
+
 # This will ask for sudo permission as it starts running 
 bash setup/install_cross.sh
 popd
@@ -49,6 +51,8 @@ bash temp/build_hello_world.sh
 ```
 Copy the executable from ``build`` directory to your raspi
 and run to check. See section [Test the toolchain](#test-the-toolchain).
+
+Once done, you can remove the ``temp`` directory.
 
 ### Build the toolchain from source
 
