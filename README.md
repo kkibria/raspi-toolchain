@@ -37,6 +37,7 @@ Following steps will download the toolchain and o/s image and install toolchain 
 mkdir temp && pushd temp
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
 tar xfz raspi-toolchain-install.tar.gz
+# This will ask for sudo permission as it starts running 
 bash setup/install_cross.sh
 popd
 ```
@@ -47,7 +48,7 @@ Make sure you have ``cmake`` installed. Following will build the executable.
 bash temp/build_hello_world.sh
 ```
 Copy the executable from ``build`` directory to your raspi
-and run to check. See section [Test the toolchain](#test-the-toolchain)
+and run to check. See section [Test the toolchain](#test-the-toolchain).
 
 ### Build the toolchain from source
 
@@ -92,9 +93,10 @@ Then call the script `build_hello_world.sh`.
 ## Test the toolchain
 
 This repository contains a simple hello world example.
-To test the executable, copy it to your raspi:
+To test the executable, copy it to your raspi.
 
 ```bash
+# Use the correct IP address here
 scp build/hello pi@192.168.1.PI:/home/pi/hello
 ssh pi@192.168.1.PI
 ./hello

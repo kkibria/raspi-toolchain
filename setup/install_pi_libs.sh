@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
-URL=https://downloads.raspberrypi.org/raspios_lite_armhf/images/raspios_lite_armhf-2021-05-28/2021-05-07-raspios-buster-armhf-lite.zip
-
-ZIP=$(basename -- "$URL")
+ZIP=$(basename -- "$URLIMG")
 IMG=${ZIP%.*}.img
 MNT="raspios"
 
-wget $URL
+wget $URLIMG
 unzip $ZIP
 fdisk -lu $IMG
 # Disk 2021-05-07-raspios-buster-armhf-lite.img: 1.76 GiB, 1874853888 bytes, 3661824 sectors
