@@ -31,7 +31,7 @@ You have two options:
 To cross-compile any executable you need the toolchain on your host and
 you need to get current libraries and include files from raspberry o/s image.
 
-Following steps will download the toolchain and o/s image and install them in your linux. I tested them in my WSL2 ubuntu in a windows machine.
+Following steps will download the toolchain and o/s image and install toolchain and library in your linux. I tested them in my WSL2 ubuntu in a windows machine.
 
 ```bash
 mkdir temp && pushd temp
@@ -43,10 +43,10 @@ popd
 ### Test the setup
 This repository contains a simple hello world example.
 Make sure you have ``cmake`` installed. Following will build the executable.
-```
+```bash
 bash temp/build_hello_world.sh
 ```
-Copy the executable from ``build`` directory to your raspi
+[Copy the executable](#test-the-toolchain) from ``build`` directory to your raspi
 and run to check.
 
 ### Build the toolchain from source
@@ -78,7 +78,7 @@ It's important that you put the files into the same directory, since the toolcha
 
 After that feel free to delete the docker container.
 
-## Manually copy the libraries
+### Manually copy the libraries
 To cross-compile any executable after you installed the toolchain on your host,
 you need to get the current libraries and include files from your raspberry:
 
