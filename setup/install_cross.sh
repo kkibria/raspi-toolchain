@@ -8,3 +8,4 @@ wget $URLTCN
 wget $URLIMG
 bash $MYDIR/install_pi_gcc.sh
 bash $MYDIR/install_pi_libs.sh
+echo 'PATH=/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0:$PATH' >> ~/.bashrc 
