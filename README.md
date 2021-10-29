@@ -46,8 +46,8 @@ Make sure you have ``cmake`` installed. Following will build the executable.
 ```bash
 bash temp/build_hello_world.sh
 ```
-[Copy the executable](#test-the-toolchain) from ``build`` directory to your raspi
-and run to check.
+Copy the executable from ``build`` directory to your raspi
+and run to check. See section [Test the toolchain](#test-the-toolchain)
 
 ### Build the toolchain from source
 
