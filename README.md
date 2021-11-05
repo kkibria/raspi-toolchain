@@ -98,3 +98,12 @@ scp build/hello pi@192.168.1.PI:/home/pi/hello
 ssh pi@192.168.1.PI
 ./hello
 ```
+
+## How to know what is already installed in the root
+this will tell us what is already installed in our wsl 
+```
+dpkg --root=/path/to/root/ --get-selections
+```
+
+
+
