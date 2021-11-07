@@ -9,5 +9,9 @@ wget $URLIMG
 sudo echo "installing toolchain and raspi libraries"
 bash $MYDIR/install_pi_gcc.sh
 bash $MYDIR/install_pi_libs.sh
-echo 'PATH=$PATH:/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0' >> ~/.bashrc 
+
+# echo 'PATH=$PATH:/opt/cross-pi-gcc/bin:/opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0' >> ~/.bashrc 
+for ADDPATH in /opt/cross-pi-gcc/bin /opt/cross-pi-gcc/libexec/gcc/arm-linux-gnueabihf/8.3.0; do
+  [[ ":$PATH:" != *":$ADDPATH:"* ]] && echo "export PATH=\$PATH:$ADDPATH" >> ~/.bashrc
+done 
 sudo ln -s $HOME/rpi/rootfs/lib/arm-linux-gnueabihf /lib
