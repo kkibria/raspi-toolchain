@@ -5,20 +5,23 @@ mkdir -p $HOME/.local/{bin,share/libget}
 
 INST="${HOME}/.local/share/libget"
 ADDPATH="$HOME/.local/bin"
-BIN="${ADDPATH}/libget"
 [[ ":$PATH:" != *":$ADDPATH:"* ]] && echo "export PATH=\$PATH:$ADDPATH" >> ~/.bashrc 
 
 REPO="https://raw.githubusercontent.com/kkibria/raspi-toolchain/master"
-curl -s "${REPO}/libget.sh" --output ${INST}/libget.sh
 curl -s "${REPO}/libget.py" --output ${INST}/libget.py
 
-cat <<EOF > "${BIN}"
+for BINNAME in "libget liblink"; do
+    curl -s "${REPO}/${BINNAME}.sh" --output ${INST}/${BINNAME}.sh
+    BIN="${ADDPATH}/BINNAME"
+
+    cat <<EOF > "${BIN}"
 #!/usr/bin/env bash
 #
-bash ${INST}/libget.sh "\${@:1}"
+bash ${INST}/${BINNAME}.sh "\${@:1}"
 EOF
-chmod ug+x "${BIN}"
 
+    chmod ug+x "${BIN}"
+done
 # work inside a temporary directory
 mkdir temp-$$ && pushd temp-$$
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
