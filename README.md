@@ -31,7 +31,7 @@ You have two options:
 To cross-compile any executable you need the toolchain on your host and
 you need to get current libraries and include files from raspberry o/s image.
 
-Following steps will download the toolchain and o/s image and install toolchain and library in your linux. I tested them in my WSL2 ubuntu in a windows machine.
+Following steps will download the toolchain and raspbian buster o/s image and install toolchain and library in your linux. I tested them in my WSL2 ubuntu in a windows machine.
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/kkibria/raspi-toolchain/master/install.sh)
@@ -105,5 +105,27 @@ this will tell us what is already installed in our wsl
 dpkg --root=/path/to/root/ --get-selections
 ```
 
+## Use **libget** to get additional libraries from raspbian distro.
+When you installed the toolchain in wsl2, it also installed ``libget``. 
+This will install the libraries in ``~/rootfs`` from raspbian buster repo.
+We can add the libraries to our root file system from ~/rootfs using `rsync`
+```bash
+pushd ~/rootfs
+rsync -vR --progress -rl --delete-after --safe-links {etc,lib,sbin,usr,var} $HOME/rpi/rootfs
+popd
+```
 
+## Use **liblink** to make links to library
 
+When you installed the toolchain in wsl2, it also installed ``liblink``. Some link references
+don't have version numbers and can give link error since the installed library we have
+are all versioned. This command will create the links in ``~/liblink`` folder which
+can be added to the library search path to help linking. 
+
+As an example, following will create symlinks `libdbus-1.so`, `libgcrypt.so` `libgpg-error.so`
+pointing to the latest versions found installed.
+
+```bash
+liblink dbus-1 gcrypt gpg-error
+
+```
