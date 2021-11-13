@@ -10,7 +10,7 @@ ADDPATH="$HOME/.local/bin"
 REPO="https://raw.githubusercontent.com/kkibria/raspi-toolchain/master"
 curl -s "${REPO}/libget.py" --output ${INST}/libget.py
 
-for BINNAME in (libget liblink); do
+for BINNAME in "libget" "liblink"; do
     curl -s "${REPO}/${BINNAME}.sh" --output ${INST}/${BINNAME}.sh
     BIN="${ADDPATH}/${BINNAME}"
 
