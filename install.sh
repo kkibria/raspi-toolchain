@@ -23,7 +23,6 @@ EOF
     chmod ug+x "${BIN}"
 done
 
-exit 0
 # work inside a temporary directory
 mkdir temp-$$ && pushd temp-$$
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
