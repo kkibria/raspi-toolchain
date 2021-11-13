@@ -1,4 +1,4 @@
-# Rasperry PI Toolchains
+# Cross compile toolchain for raspberry pi used in WSL2
 
 This was forked from <https://github.com/Pro/raspi-toolchain>. I use this to install the
 toolchain in WSL2 for cross compiling and probably will work in other linux boxes.
