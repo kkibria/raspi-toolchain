@@ -118,7 +118,8 @@ popd
 ## Use **liblink** to make links to library
 
 When you installed the toolchain in wsl2, it also installed ``liblink``. Some link references
-don't have version numbers and can give link error since the installed library we have
+from other environments (such as `rustc`) don't have version numbers and
+can give link error since the installed library we have
 are all versioned. This command will create the links in ``~/liblink`` folder which
 can be added to the library search path to help linking. 
 
