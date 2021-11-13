@@ -12,7 +12,7 @@ curl -s "${REPO}/libget.py" --output ${INST}/libget.py
 
 for BINNAME in "libget liblink"; do
     curl -s "${REPO}/${BINNAME}.sh" --output ${INST}/${BINNAME}.sh
-    BIN="${ADDPATH}/BINNAME"
+    BIN="${ADDPATH}/${BINNAME}"
 
     cat <<EOF > "${BIN}"
 #!/usr/bin/env bash
@@ -22,6 +22,8 @@ EOF
 
     chmod ug+x "${BIN}"
 done
+
+exit 0
 # work inside a temporary directory
 mkdir temp-$$ && pushd temp-$$
 wget https://github.com/kkibria/raspi-toolchain/releases/latest/download/raspi-toolchain-install.tar.gz
