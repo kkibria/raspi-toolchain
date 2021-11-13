@@ -5,12 +5,14 @@ mkdir -p $HOME/.local/{bin,share/libget}
 
 INST="${HOME}/.local/share/libget"
 ADDPATH="$HOME/.local/bin"
+BASH_BINS="libget liblink"
+
 [[ ":$PATH:" != *":$ADDPATH:"* ]] && echo "export PATH=\$PATH:$ADDPATH" >> ~/.bashrc 
 
 REPO="https://raw.githubusercontent.com/kkibria/raspi-toolchain/master"
 curl -s "${REPO}/libget.py" --output ${INST}/libget.py
 
-for BINNAME in "libget" "liblink"; do
+for BINNAME in ${BASH_BINS}; do
     curl -s "${REPO}/${BINNAME}.sh" --output ${INST}/${BINNAME}.sh
     BIN="${ADDPATH}/${BINNAME}"
 
