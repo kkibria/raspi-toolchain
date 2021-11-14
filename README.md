@@ -1,18 +1,22 @@
 # Cross compile toolchain for raspberry pi used in WSL2
 
-This was forked from <https://github.com/Pro/raspi-toolchain>. I use this to install the
-toolchain in WSL2 for cross compiling and probably will work in other linux boxes.
+This was forked from <https://github.com/Pro/raspi-toolchain>. I modified the fork 
+to install the
+toolchain in WSL2 (ubuntu) for cross compiling.
+This fork probably will work in other linux boxes
+although I haven't tested them.
 
 Repository for Raspberry PI cross compiler using the new GCC8 and GCC9 for Raspbian Buster.
-This supports all new Raspberry PIs (ARMv7), and the older ones, including Zero, A, B, B+ (ARMv6) with newer GCCs.
-
-You can probably also use this repository for any other ARMv6 and ARMv7 devices. Check the original repo to get more details.
+This supports all new Raspberry PIs (ARMv7), and the older ones,
+including Zero, A, B, B+ (ARMv6) with newer GCCs. Check the original repo to get more details.
 
 ### Install toolchain
 To cross-compile any executable you need the toolchain on your host and
 you need to get current libraries and include files from raspberry o/s image.
 
-Following steps will download the toolchain and raspbian buster o/s image and install toolchain and library in your linux. I tested them in my WSL2 ubuntu in a windows machine.
+Following steps will download the toolchain and raspbian buster o/s image
+and install toolchain and library in your linux.
+I tested them in my WSL2 ubuntu in a windows machine.
 
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/kkibria/raspi-toolchain/master/install.sh)
