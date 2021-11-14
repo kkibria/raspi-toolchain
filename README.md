@@ -10,7 +10,7 @@ Repository for Raspberry PI cross compiler using the new GCC8 and GCC9 for Raspb
 This supports all new Raspberry PIs (ARMv7), and the older ones,
 including Zero, A, B, B+ (ARMv6) with newer GCCs. Check the original repo to get more details.
 
-### Install toolchain
+## Install toolchain
 To cross-compile any executable you need the toolchain on your host and
 you need to get current libraries and include files from raspberry o/s image.
 
@@ -27,7 +27,7 @@ buster image. Save the raspbian image if you choose to remove the `temp` directo
 you are done. You will need the image if you want to install additional libraries. Without
 the image you may end up reinstalling libraries that are already installed. 
 
-### Test the setup
+## Test the setup
 This repository contains a simple hello world example.
 Make sure you have ``cmake`` installed. Following will build the executable.
 ```bash
